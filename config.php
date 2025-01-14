@@ -2,20 +2,12 @@
 session_start();
 
 /**
- * Voor de MAC gebruikers;
- */
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "root";
-$dbname = "youtube-test";
-
-/**
  * Voor de Windows gebruikers;
  */
-// $dbhost = "localhost";
-// $dbuser = "root";
-// $dbpass = "";
-// $dbname = "youtube-clone";
+ $dbhost = "localhost";
+ $dbuser = "root";
+ $dbpass = "";
+ $dbname = "youtube-clone";
 
 $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 

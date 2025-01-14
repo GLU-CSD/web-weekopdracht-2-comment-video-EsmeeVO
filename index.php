@@ -2,9 +2,13 @@
 include("config.php");
 include("reactions.php");
 
+
+
 $getReactions = Reactions::getReactions();
 //uncomment de volgende regel om te kijken hoe de array van je reactions eruit ziet
 // echo "<pre>".var_dump($getReactions)."</pre>";
+
+
 
 if(!empty($_POST)){
 
@@ -28,6 +32,7 @@ if(!empty($_POST)){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="./assets/css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youtube remake</title>
@@ -43,3 +48,4 @@ if(!empty($_POST)){
 <?php
 $con->close();
 ?>
+

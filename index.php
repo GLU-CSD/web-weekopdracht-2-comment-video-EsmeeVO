@@ -1,13 +1,21 @@
 <?php
 include("config.php");
+include("connectie.php");
 include("reactions.php");
 
+$sql = "INSERT INTO MyGuests (firstname, lastname, email)
 
+VALUES ('John', 'Doe', 'john@example.com')";
+
+if ($conn->query($sql) === TRUE) {
+    echo " - New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 $getReactions = Reactions::getReactions();
 //uncomment de volgende regel om te kijken hoe de array van je reactions eruit ziet
 // echo "<pre>".var_dump($getReactions)."</pre>";
-
 
 
 if(!empty($_POST)){
@@ -46,6 +54,21 @@ if(!empty($_POST)){
 </html>
 
 <?php
+$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // hier komt de code als er gegevens zijn
+} else {
+    echo "0 results";
+}
+
+while ($row = $result->fetch_assoc()) {
+    // hier komen de gegevens van elke rij (record)
+    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+}
+
+$conn->close();
 $con->close();
 ?>
 
